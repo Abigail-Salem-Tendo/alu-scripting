@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-This function creates a request to get the number of subcribers from the reddit api.
+This function creates a request to get the 
+number of subcribers from the reddit api.
 """
 
 
