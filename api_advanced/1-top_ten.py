@@ -14,7 +14,7 @@ def top_ten(subreddit):
     headers = {}
     queries = {"limit": 10}
 
-    reponse = requests.get(url, params=queries, allow_redirects=False)
+    response = requests.get(url, params=queries, allow_redirects=False)
     
     if response.status_code == 200:
         data = response.json()
