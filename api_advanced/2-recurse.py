@@ -16,7 +16,7 @@ def recurse(subreddit, hot_list=None, after=None):
         after (str): Pagination
 
     Returns:
-        kist: List the article titles
+        list: List the article titles
     """
 
     #initialize the list of not provided
