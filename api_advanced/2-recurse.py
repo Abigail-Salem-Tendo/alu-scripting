@@ -23,36 +23,29 @@ def recurse(subreddit, hot_list=None, after=None):
     if hot_list is None:
         hot_list = []
 
+    if subreddit is None or not isinstance(subreddit, str):
+        return None
+
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
+    headers = {"User-Agent": "python:RedditTask3:v1.0 (by /u/Mental_Meal_9515)"}
+    params = {"after": after, "limit": 100}
 
-    headers = {
-        "User-Agent": "python:RedditTask3:v1.0 (by /u/Mental_Meal_9515)"
-    }
-
-    params = {"limit": 100}
-    if after:
-        params["after"] = after
-
-    response = requests.get(
-        url, headers=headers, params=params, allow_redirects=False
+    try:
+        response = requests.get(
+            url, headers=headers, params=params,
+            allow_redirects=False, timeout=10
         )
-
-
         if response.status_code != 200:
             return None
 
-        data = response.json()
-        posts = data["data"]["children"]
-        # if no posts found and this is the first page, return None
-        if not posts and after is None:
-            return None
-        # add titles from the current page to our list
-        for post in posts:
-            hot_list.append(post["data"]["title"])
+        data = response.json().get("data", {})
+        children = data.get("children", [])
+        for post in children:
+            hot_list.append(post.get("data", {}).get("title"))
 
-        next_after = data["data"]["after"]
-
-        if next_after:
-            return recurse(subreddit, hot_list, next_after)
-        else:
-            return hot_list
+        after = data.get("after")
+        if after is not None:
+            return recurse(subreddit, hot_list, after)
+        return hot_list
+    except Exception:
+        return None

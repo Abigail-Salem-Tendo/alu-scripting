@@ -12,7 +12,9 @@ def top_ten(subreddit):
     """
 
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-    headers = {"User-Agent": "python:RedditTask2:v1.0 (by /u/Mental_Meal_9515)"}
+    headers = {
+               "User-Agent": "python:RedditTask2:v1.0 (by /u/Mental_Meal_9515)"
+    }
     params = {"limit": 10}
 
     try:
