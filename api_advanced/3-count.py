@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""
-A recursive count given keywords in hot article titles of a subreddit"""
+"""A recursive count given keywords in hot article titles of a subreddit."""
 import requests
 
 
