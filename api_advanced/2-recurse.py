@@ -19,7 +19,7 @@ def recurse(subreddit, hot_list=None, after=None):
         list: List the article titles
     """
 
-    #initialize the list of not provided
+    # initialize the list of not provided
     if hot_list is None:
         hot_list = []
 
