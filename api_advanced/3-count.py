@@ -1,24 +1,11 @@
 #!/usr/bin/python3
 """
-A recursive function that queriese the Rddit API, parses the title
-of all the hot articles. Prints a sorted count of given keywords
-"""
+A recursive count given keywords in hot article titles of a subreddit"""
 import requests
 
 
 def count_words(subreddit, word_list, after=None, word_count=None):
-   """
-    Recursively counts the keywords in hot article titles from subreddit
-
-    Args:
-        subreddit (str): The subreddit to search
-        word_list (list): List of keywords to count
-        after (str): Pagination token
-        word_count (dict): Dictionary to accumulate word count
-
-    Returns:
-        None: Results are printed to stdout
-    """
+   """Count occurrences of keywords in hot titles."""
 
     if counts is None:
         counts = {}
