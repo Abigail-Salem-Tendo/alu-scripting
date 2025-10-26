@@ -14,7 +14,8 @@ def recurse(subreddit, hot_list=None, after=None):
         subreddit (str): the subreddit to search
         hot_list (list): list with article titles
         after (str): Pagination
-    returns:
+
+    Returns:
         kist: List the article titles
     """
 
@@ -22,7 +23,7 @@ def recurse(subreddit, hot_list=None, after=None):
     if hot_list is None:
         hot_list = []
 
-    url = ""
+    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
 
     headers = {
 

@@ -14,14 +14,16 @@ def count_words(subreddit, word_list, after=None, word_count=None):
         word_list (list): List of keywords to count
         after (str): Pagination token
         word_count (dict): Dictionary to accumulate word counts
+    Returns:
+        None: Results are printed to stdout
     """
 
     if word_count is None:
-    word_count = {}
+        word_count = {}
     # convert the list of lowercase
-    for word in word_list:
-        word_lower = word.lower()
-        word_count[word_lower] = word_count.get(word_lower, 0)
+        for word in word_list:
+            word_lower = word.lower()
+            word_count[word_lower] = word_count.get(word_lower, 0)
 
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     headers = {}
