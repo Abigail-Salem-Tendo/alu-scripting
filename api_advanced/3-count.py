@@ -9,11 +9,13 @@ import requests
 def count_words(subreddit, word_list, after=None, word_count=None):
    """
     Recursively counts the keywords in hot article titles from subreddit
+
     Args:
         subreddit (str): The subreddit to search
         word_list (list): List of keywords to count
         after (str): Pagination token
-        word_count (dict): Dictionary to accumulate word counts
+        word_count (dict): Dictionary to accumulate word count
+
     Returns:
         None: Results are printed to stdout
     """
@@ -26,7 +28,7 @@ def count_words(subreddit, word_list, after=None, word_count=None):
             word_count[word_lower] = word_count.get(word_lower, 0)
 
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-    headers = {}
+    headers = {"User-Agent": "python:RedditTask4:v1.0 (by /u/Mental_Meal_9515)"}
     params = {"limit": 100}
     if after:
         params["after"] = after

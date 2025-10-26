@@ -27,7 +27,9 @@ def recurse(subreddit, hot_list=None, after=None):
         return None
 
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-    headers = {"User-Agent": "python:RedditTask3:v1.0 (by /u/Mental_Meal_9515)"}
+    headers = {
+               "User-Agent": "python:RedditTask3:v1.0 (by /u/Mental_Meal_9515)"
+    }
     params = {"after": after, "limit": 100}
 
     try:
