@@ -10,7 +10,7 @@ def count_words(subreddit, word_list):
     a function that counts the words.
     """
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-    headers = {'User-Agent': 'python:RedditTask3:v1.0 (by /u/Mental_Meal_9515)'}
+    headers = {'User-Agent': 'python:RedditTask:v1.0 (by /u/Mental_Meal_9515)'}
     response = requests.get(url, headers=headers, allow_redirects=False)
     if response.status_code != 200:
 
